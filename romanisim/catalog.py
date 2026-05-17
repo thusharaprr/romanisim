@@ -936,7 +936,7 @@ def read_catalog(filename,
         cat = table.Table.read(filename)
 
     # Remove bad entries
-    bandpass = [f for f in cat.dtype.names if f in BANDPASSES]
+    bandpass = [f for f in cat.dtype.names if f in bandpasses]
     bad = np.zeros(len(cat), dtype='bool')
     for b in bandpass:
         bad |= ~np.isfinite(cat[b])
